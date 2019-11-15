@@ -47,6 +47,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -143,6 +144,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "mon-projet-angular"
 }
