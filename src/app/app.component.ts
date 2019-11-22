@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component} from '@angular/core';
 // import { AppareilService } from './services/appareil.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
   // title = 'mon-projet-angular';
   // isAuth = false;
 
@@ -47,10 +47,10 @@ export class AppComponent implements OnInit {
     // );
   }
 
-  ngOnInit() {
+  // ngOnInit() {
     // On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
     // this.appareils = this.appareilService.appareils
-  }
+  // }
 
 
 }

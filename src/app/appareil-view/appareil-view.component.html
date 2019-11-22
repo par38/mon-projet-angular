@@ -20,8 +20,8 @@
 </ul>
 
 <!-- <button class="btn btn-success" disabled>Tout allumer</button> -->
-<button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()">
+<button class="btn btn-success" (click)="onAllumer()">
   Tout allumer
 </button>
 
-<button class="btn btn-danger" [disabled]="!isAuth" (click)="onEteindre()">Tout éteindre</button>
+<button class="btn btn-danger" (click)="onEteindre()">Tout éteindre</button>
