@@ -3,14 +3,24 @@
     'list-group-item-success': appareilStatus === 'allumé',
     'list-group-item-danger': appareilStatus === 'éteint'}">
 
-  <!-- bouton carré rouge - visible IF appareilStatus === 'éteint' -->
-  <div style="width:20px;height:20px;background-color:red;" *ngIf="appareilStatus === 'éteint'"></div>
+  <!-- +++++++ ngIf - bouton carré rouge visible IF condition -->
+  <!-- <div style="width:20px;height:20px;background-color:red;" *ngIf="appareilStatus === 'éteint'"></div> -->
 
-  <!-- + en dur -->
+  <!-- +++++++ appareilName et Status arrivent depuis l'array -->
   <!-- <h4>Appareil : {{ appareilName }} -- Status : {{appareilStatus}}</h4> -->
 
-  <!-- + fonction -->
+  <!-- +++++++ appareilName et Status arrivent depuis l'array, -->
+  <!-- +++++++ mais sont modifiés par input -->
+
+  <!-- +++++++ ngStyle appelle la fonction getColor -->
   <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
-  <input type="text" class="form-control" [(ngModel)]="appareilName">
+  <a [routerLink]="[id]">Détail</a>
+
+  <!-- +++++++ Ligne d'input (html) modifiant l'affichage de la ligne précédente avec ngModel (communication bi-directionnelle) -->
+  <!-- <input type="text" class="form-control" [(ngModel)]="appareilName"> -->
+
+  <button class="btn btn-sm btn-success" *ngIf="appareilStatus ==='éteint'" (click)="onSwitch()">Allumer</button>
+
+  <button class="btn btn-sm btn-danger" *ngIf="appareilStatus ==='allumé'" (click)="onSwitch()">Eteindre</button>
 
 </li>
