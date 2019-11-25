@@ -13,12 +13,19 @@ export class SingleAppareilComponent implements OnInit {
   name: string = 'Appareil'
   status: string = 'Statut'
 
-  constructor(private appareilService: AppareilService, private route: ActivatedRoute) { }
+  constructor(
+    private appareilService: AppareilService,
+
+    // +++++++ afin de reconnaître le params :id
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    // +++++++ afin de reconnaître le params :id
     // this.name = this.route.snapshot.params['id']
-    const id = this.route.snapshot.params['id']
-    this.name = this.appareilService.getAppareilById(+id).status
+    const id = this.route.snapshot.params['id']  // +++ où id est un string
+
+    // ++++++ .getAppareilById: méthode définie in appareil.service.ts
+    this.name = this.appareilService.getAppareilById(+id).status    // ++++++ +id le cast en number
     this.status = this.appareilService.getAppareilById(+id).status
   }
 

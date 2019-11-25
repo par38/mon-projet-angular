@@ -1,4 +1,9 @@
-import {  Component} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+// -import { Observable } from 'rxjs'
+// -import 'rxjs/add/observable/interval'
+import { interval, Subscription } from 'rxjs';
+
+
 // import { AppareilService } from './services/appareil.service';
 
 @Component({
@@ -6,7 +11,7 @@ import {  Component} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
+export class AppComponent implements OnInit, OnDestroy {
   // title = 'mon-projet-angular';
   // isAuth = false;
 
@@ -37,6 +42,10 @@ export class AppComponent{
   //     }, 4000
   //   );
   // }
+
+  secondes: number
+  counterSubscription: Subscription
+
   constructor(
     // private appareilService: AppareilService
   ) {
@@ -47,7 +56,26 @@ export class AppComponent{
     // );
   }
 
-  // ngOnInit() {
+  ngOnInit() {
+    // -  const counter = Observable.interval(1000)
+    // + Interval + subscribe
+    // const counter = interval(1000)
+    // this.counterSubscription = counter.subscribe(
+    //   (value: number) => {
+    //     this.secondes = value
+    //   },
+    //   (error) => {
+    //     console.log('Uh-oh, an error occurred! : ' + error);
+    //   },
+    //   () => {
+    //     console.log('Interval completed!')
+    //   }
+    // )
+  }
+
+  ngOnDestroy() {
+    this.counterSubscription.unsubscribe()
+  }
     // On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
     // this.appareils = this.appareilService.appareils
   // }

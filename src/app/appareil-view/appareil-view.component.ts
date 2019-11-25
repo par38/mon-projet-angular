@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AppareilService } from '../services/appareil.service'
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-appareil-view',
   templateUrl: './appareil-view.component.html',
   styleUrls: ['./appareil-view.component.scss']
 })
-export class AppareilViewComponent implements OnInit {
+export class AppareilViewComponent implements OnInit, OnDestroy {
 
   isAuth = false;
 
   // + array comprenant tous appareils et leurs status
   // + AU PLURIEL !
   appareils: any[];
+  appareilSubscription: Subscription
 
   // + Promise, nécessite d'un | async en .html
   lastUpdate = new Promise((resolve, reject) => {
@@ -34,7 +36,13 @@ export class AppareilViewComponent implements OnInit {
 
   ngOnInit() {
     // On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
-    this.appareils = this.appareilService.appareils
+    // this.appareils = this.appareilService.appareils
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (appareils: any[]) => {
+      this.appareils = this.appareils
+      }
+    )
+    this.appareilService.emitAppareilSubject()
   }
 
   onAllumer() {
@@ -47,5 +55,8 @@ export class AppareilViewComponent implements OnInit {
     } else {
       return null
     }
+  }
+  ngOnDestroy() {
+    this.appareilSubscription.unsubscribe()
   }
 }
