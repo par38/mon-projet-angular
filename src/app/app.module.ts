@@ -14,12 +14,16 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component'
 import {AuthGuard} from './services/auth-guard.service'
 
 const appRoutes: Routes = [
+  // ++++++ attention : les routes sont regardées dans l'ordre ! mettre la wildcard en dernière 
+  { path: '', component: AuthComponent },
+  { path: 'auth', component: AuthComponent },
   { path: 'appareils', canActivate: [AuthGuard],component: AppareilViewComponent },
   { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent },
-  { path: 'auth', component: AuthComponent },
   // { path: '', component: AppareilViewComponent },
-  { path: '', component: AuthComponent },
   { path: 'not-found', component: FourOhFourComponent },
+
+  // ++++++ REDIRECTION vers path: 'not-found'
+  // ++++++ path: '**' tous le reste, A METTRE EN DERNIER !!
   {path:'**', redirectTo:'not-found'}
 ]
 

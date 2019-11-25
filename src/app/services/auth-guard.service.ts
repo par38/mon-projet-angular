@@ -5,10 +5,12 @@ import {Router} from '@angular/router'
 // import { Observable } from 'rxjs/Observable'  // génère une erreur
 import { Observable } from 'rxjs'
 
+// ++++++ decorateur Injectable, pour pouvoir l'inserer un service dans un autre service
 @Injectable()
 
 export class AuthGuard implements CanActivate {
 
+  // ++++++ insertion d'un service dans un service : @Injectable
   constructor(private authService: AuthService, private router: Router) { }
   
   canActivate(

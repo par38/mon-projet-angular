@@ -14,6 +14,8 @@
 
   <!-- +++++++ ngStyle appelle la fonction getColor -->
   <h4 [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} -- Statut : {{ getStatus() }}</h4>
+
+  <!--  ++++++ utiliser une variable : property binding "[id]"-->
   <a [routerLink]="[id]">Détail</a>
 
   <!-- +++++++ Ligne d'input (html) modifiant l'affichage de la ligne précédente avec ngModel (communication bi-directionnelle) -->
