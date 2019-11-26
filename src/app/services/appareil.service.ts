@@ -6,7 +6,8 @@ export class AppareilService {
   appareilSubject = new Subject<any[]>()
 
   // + private rend l'array un Subject qui empêche l'accès et la manipulation aux composants pas autorisés
-  private appareils = [
+  // private appareils = [
+   appareils = [
     {
       id: 1,
       name: 'Machine à laver',

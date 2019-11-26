@@ -41,13 +41,13 @@ export class AppareilViewComponent implements OnInit
 
   ngOnInit() {
     // On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
-    // this.appareils = this.appareilService.appareils
+    this.appareils = this.appareilService.appareils
     // this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
     //   () => {
     //     this.appareils = this.appareils;
     //   }
     // )
-    this.appareilService.emitAppareilSubject()
+    // this.appareilService.emitAppareilSubject()
   }
 
   onAllumer() {
