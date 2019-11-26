@@ -27,7 +27,7 @@ export class AppareilService {
   emitAppareilSubject() {
     this.appareilSubject.next(this.appareils.slice())
   }
-  
+
   // +++++++ afin de trouver le params :id dans le json
   getAppareilById(id: number) {
     const appareil = this.appareils.find(
@@ -61,5 +61,18 @@ export class AppareilService {
       appareil.status = 'éteint'
       this.emitAppareilSubject()
     }
+  }
+
+  addAppareil(name: string, status: string) {
+    const appareilObject = {
+      id: 0,
+      name: "",
+      status:""
+    }
+    appareilObject.name = name;
+    appareilObject.status = status;
+    appareilObject.id = this.appareils[(this.appareils.length - 1)].id + 1;
+    this.appareils.push(appareilObject);
+    this.emitAppareilSubject()
   }
 }
