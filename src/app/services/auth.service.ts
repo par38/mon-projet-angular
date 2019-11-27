@@ -2,6 +2,7 @@ export class AuthService {
 
   isAuth = false;
 
+  // ++ envoyé vers auth/auth.component.ts onSignIn()
   signIn() {
     return new Promise(
       (resolve, reject) => {

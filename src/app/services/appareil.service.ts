@@ -1,13 +1,14 @@
-// -import {Subject} from 'rxjs/Subject'
-import { Subject } from 'rxjs'
+import { Subject } from 'rxjs/Subject'
 
 export class AppareilService {
 
   appareilSubject = new Subject<any[]>()
 
-  // + private rend l'array un Subject qui empêche l'accès et la manipulation aux composants pas autorisés
-  // private appareils = [
-   appareils = [
+  // ++ private rend l'array un Subject qui empêche l'accès et la manipulation aux composants pas autorisés
+  // - private appareils = [   
+    // / ERROR in src/app/appareil-view/appareil-view.component.ts(44,43): error TS2341: Property 'appareils' is private and only accessible within class 'AppareilService'.
+  
+  appareils = [
     {
       id: 1,
       name: 'Machine à laver',

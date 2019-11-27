@@ -18,6 +18,7 @@ export class AuthComponent implements OnInit {
     this.authStatus = this.authService.isAuth;
   }
 
+  // ++ signIn() reçu depuis '../services/auth.service'
   onSignIn() {
     this.authService.signIn().then(
       () => {
