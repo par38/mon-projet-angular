@@ -25,7 +25,7 @@ export class SingleAppareilComponent implements OnInit {
     const id = this.route.snapshot.params['id']  // +++ où id est un string
 
     // ++++++ .getAppareilById: méthode définie in appareil.service.ts
-    this.name = this.appareilService.getAppareilById(+id).status    // ++++++ +id le cast en number
+    this.name = this.appareilService.getAppareilById(+id).name    // ++++++ +id le cast en number
     this.status = this.appareilService.getAppareilById(+id).status
   }
 

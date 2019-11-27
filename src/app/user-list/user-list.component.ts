@@ -12,20 +12,28 @@ import {UserService } from '../services/user.service'
   
 export class UserListComponent implements OnInit, OnDestroy {
 
+  // ++ un array user de type du model User
   users: User[];
+  // ++ pattern Subscription
   userSubscription: Subscription;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    // ++ on injecte le service
+    private userService: UserService) { }
   
   ngOnInit() {
+    // ++ on subscris au Subject contenu dans le service
     this.userSubscription = this.userService.userSubject.subscribe(
+      // ++ qui va emettre un array de type du modèle User
       (users: User[]) => {
         this.users = users
       }
     )
+    // ++ on emets le user
     this.userService.emitUsers();
   }
 
+  // ++ ne pas oublier le OnDestroy
   ngOnDestroy() {
     this.userSubscription.unsubscribe()
   }

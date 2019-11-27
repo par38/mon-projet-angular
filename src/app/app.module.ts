@@ -11,7 +11,7 @@ import { AuthService } from './services/auth.service'
 import { AppareilViewComponent } from './appareil-view/appareil-view.component';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component'
-import {AuthGuard} from './services/auth-guard.service';
+import { AuthGuard } from './services/auth-guard.service';
 import { EditAppareilComponent } from './edit-appareil/edit-appareil.component'
 import { UserService } from './services/user.service';
 import { UserListComponent } from './user-list/user-list.component';
@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   { path: 'edit', canActivate: [AuthGuard], component: EditAppareilComponent }, 
   { path: 'auth', component: AuthComponent },
   { path: 'users', component: UserListComponent },
-  {path: 'new-user', component: NewUserComponent},
+  { path: 'new-user', component: NewUserComponent },
   { path: '', component: AuthComponent },
   // { path: '', component: AppareilViewComponent },
   { path: 'not-found', component: FourOhFourComponent },
@@ -50,6 +50,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+
+    // ++ permet les formulaires Reactives !!
     ReactiveFormsModule
   ],
   providers: [

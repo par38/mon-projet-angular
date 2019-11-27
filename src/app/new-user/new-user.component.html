@@ -2,10 +2,16 @@
 
 <div class="col-sm-8 col-sm-offset-2">
 
+  <!-- ++ dans un formulaire template, appeler NgForm -->
+  <!-- ++ dans un reactif : FormGroup + FormControl -->
+  <!-- ++ lier à l'attribut [formGroup] à l'objet userForm créé -->
+  <!-- ++ écouter l'évenement (ngSubmit) -->
   <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
 
     <div class="form-group">
       <label for="firstName">Prénom</label>
+      <!-- ++ class="form-control"  -->
+      <!-- ++ directive formControlName -->
       <input type="text" id="firstName" class="form-control" formControlName="firstName">
     </div>
 
@@ -23,12 +29,32 @@
 
       <label for="drinkPreference">Quelle boisson préférez-vous ?</label>
       <select id="drinkPreference" class="form-control" formControlName="drinkPreference">
-        <option value="jus d\'orange">Jus d'orange</option>
+        <option value="jus d'orange">Jus d'orange</option>
         <option value="jus de mangue">Jus de mangue</option>
       </select>
     </div>
 
-    <button type="submit" class="btn btn-primary">Soumettre</button>
+
+    <div formArrayName="hobbies">
+      <h3>Vos hobbies</h3>
+
+      <!-- ++ .controls accède à l'array des controls Validators -->
+      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i= index">
+
+        <!-- ++ cas "i" = lettre : formControlName="i" -->
+        <!-- ++ cas "i" = variable : [formControlName]="i"   [] pour lier -->
+        <input type="text" class="form-control" [formControlName]="i">
+      </div>
+
+      <!-- ++ type="button", pour éviter qu'il soumette le formulaire -->
+      <!-- ++ (click) déclenchant la méthode "onAddHobby()" -->
+      <button class="btn btn-success" type="button" (click)="onAddHobby()">Ajouter un hobby</button>
+    </div>
+    <br />
+
+    <!-- ++ type="submit" va déclencher le (ngSubmit) -->
+    <!-- ++ lier à la proprieté disabled le resultat des controls Validators -->
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
 
   </form>
 
