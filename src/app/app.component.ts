@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 // -import { Observable } from 'rxjs'
 // -import 'rxjs/add/observable/interval'
-import { interval, Subscription } from 'rxjs';
+import { interval } from 'rxjs'
+import { Subscription } from 'rxjs/Subscription';
 
 
 // import { AppareilService } from './services/appareil.service';
@@ -76,9 +77,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.counterSubscription.unsubscribe()
   }
-    // On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
+    // + On rempli le tableau vide "this.appareils" avec le contenu de l'array "this.appareilService.appareils" de appareilService 
     // this.appareils = this.appareilService.appareils
   // }
-
 
 }
