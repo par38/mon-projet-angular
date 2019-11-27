@@ -17,6 +17,8 @@ export class EditAppareilComponent implements OnInit {
   ngOnInit() {
   }
   
+  // ++ dans un formulaire template, appeler NgForm
+  // ++ dans un reactif : FormGroup + FormControl
   onSubmit(form: NgForm){
     const name = form.value['name']
     const status = form.value['status']
