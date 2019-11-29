@@ -37,4 +37,12 @@ export class UserListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.userSubscription.unsubscribe()
   }
+
+  onSaveUsers() {
+    this.userService.saveUsersToServer();
+  }
+  
+  onFetchUsers() {
+    this.userService.getUsersFromServer()
+  }
 }
