@@ -1,5 +1,12 @@
 <!-- <p>user-list works!</p> -->
 
+
+<button class="btn btn-primary" (click)="onFetchUsers()">
+  Récupérer les utilisateurs
+</button>
+<br />
+<br />
+
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let user of users">
     <h3>{{user.firstName}} {{user.lastName}}</h3>
@@ -11,9 +18,14 @@
     </p>
   </li>
 
-</ul>
 
-<!-- ++ routerLink="/new-user" : le / signifie à la racine -->
-<!-- ++ PAS localhost:4200/user/new-user -->
-<!-- ++ MAIS localhost:4200/new-user -->
-<a class="btn btn-primary" routerLink="/new-user">Nouvel utilisateur</a>
+  <!-- ++ routerLink="/new-user" : le / signifie à la racine -->
+  <!-- ++ PAS localhost:4200/user/new-user -->
+  <!-- ++ MAIS localhost:4200/new-user -->
+  <a class="btn btn-success" routerLink="/new-user">Nouvel utilisateur</a>
+</ul>
+<br />
+
+<button class="btn btn-primary" (click)="onSaveUsers()">
+  Enregistrer les utilisateurs
+</button>
