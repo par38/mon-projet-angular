@@ -8,7 +8,7 @@ Développez des applications Web avec Angular
 
 **Front : Angular**
 
-header: Authentification, Appareils, Nouvel apparel, Utilisateurs
+header: Authentification vide, Appareils, Nouvel apparel, Utilisateurs
 
 `HttpClientModule, FormsModule, RouterModule`
 
